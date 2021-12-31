@@ -16,7 +16,7 @@ class Day:
         rep = "" + str(self.date) + ": " + self.location + " - " + str(self.aqi) + " - " + self.weighing + ""
         return rep
 
-# Fase 1 - Extracción de datos
+# Find the AQI of an station with geolocation
 
 base_url = "https://api.waqi.info/feed/"
 token = "your key"
@@ -45,22 +45,20 @@ def suba_aqi(lat=4.762463492486517, lng=-74.09331115701266):
 today = datetime.date.today()
 date = today.strftime("%b/%d/%Y")
 
-# Air quality index classifications are in spanish, but you can find the same in English easily on Google.
-
 def define_weighing(num):
     weigh = ""
     if num <= 50:
-        weigh = "Calidad del aire buena"
+        weigh = "Good air quality"
     elif num <= 100:
-        weigh = "Calidad del aire moderada"
+        weigh = "Moderate air quality"
     elif num <= 150:
-        weigh = "Calidad del aire peligrosa para personas sensibles"
+        weigh = "Risky air quality for sensitive people"
     elif num <= 200:
-        weigh = "Calidad del aire peligrosa"
+        weigh = "Dangerous air quality"
     elif num <= 300:
-        weigh = "Calidad del aire muy peligrosa"
+        weigh = "Very dangerous air quality"
     elif num <= 500:
-        weigh = "Calidad del aire altamente tóxica"
+        weigh = "Highly toxic air quality"
     return weigh
 
 def guaymaral_instance():
